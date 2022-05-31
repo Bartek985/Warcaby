@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="libs/tween.umd.js"></script>
+  <script src="three.js"></script>
+  <script src="Main.js"></script>
+  <script src="Game.js"></script>
+  <script src="Net.js"></script>
+  <script src="Ui.js"></script>
+  <script src="Pionek.js"></script>
+  <script src="Item.js"></script>
+  <title>Warcaby</title>
+</head>
+
+<body>
+  <div id="login">
+    <span>Logowanie</span>
+    <input type="text" name="user" id="user-input" />
+    <button id="bt1">Loguj</button>
+    <button id="bt2">Reset</button>
+  </div>
+  <div id="timer">
+    Twój ruch <br/>
+    Pozostały czas: <br/>
+    <div id="seconds">30</div>
+  </div>
+  <div id="waiting">
+    <div id="nickname"></div>
+    <div id="kolor"></div>
+    Oczekiwanie
+  </div>
+  <div id="win">Wygrałeś na czas</div>
+  <div id="lose">Za wolno. Przegrałeś na czas ;(</div>
+  <div id="win-real">Wygrałeś</div>
+  <div id="lose-real">Przegrałeś ;(</div>
+  <div id="start">Gra się zaczęła</div>
+  <div id="error-handler"></div>
+  <div id="root"></div>
+</body>
+<script>
+  document.getElementById("bt1").onclick = function () {
+    ui.click();
+  };
+  document.getElementById("bt2").onclick = function () {
+    net.reset();
+  };
+  window.addEventListener("mousedown", (e) => {
+    //console.log(e);
+    game.detect((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1)
+  });
+  window.addEventListener("resize", (e) => {
+    game.resize()
+  })
+
+</script>
+
+</html>

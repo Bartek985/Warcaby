@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-const PORT = 3000;
+var PORT = process.env.PORT || 3000;
 app.use(express.text());
 var users = [];
 var pawnsPosition = []
@@ -177,5 +177,5 @@ app.post('/END_GAME', (req,res)=>{
   res.end()
 })
 app.listen(PORT, function () {
-  //console.log("start serwera na porcie " + PORT);
+  console.log("start serwera na porcie " + PORT);
 });
